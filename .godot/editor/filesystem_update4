@@ -1,0 +1,6 @@
+res://Scenes/audio_player.tscn
+res://Scripts/audio_player.gd
+res://Scripts/bg.gd
+res://Scripts/jump_pad.gd
+res://Scripts/level.gd
+res://Scenes/exit.tscn

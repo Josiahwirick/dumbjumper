@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu6wdfjntf0ju"]
+
+[ext_resource type="PackedScene" uid="uid://8vimgasecdvo" path="res://Scenes/bg.tscn" id="1_7stjx"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_nclvt"]
+[ext_resource type="FontFile" uid="uid://cx1m2pgcbcdye" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_lam6u"]
+[ext_resource type="Texture2D" uid="uid://dhpocy6su42on" path="res://assets/textures/bg/Yellow.png" id="4_lldo0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ev4dt"]
+font = ExtResource("2_lam6u")
+font_size = 40
+font_color = Color(1, 1, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 0.184314)
+shadow_offset = Vector2(6, 3)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nclvt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 25.0
+offset_right = 128.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "Dumb Jumper"
+label_settings = SubResource("LabelSettings_ev4dt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -22.0
+offset_right = 49.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_lam6u")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 46.0
+offset_right = 26.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_lam6u")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[node name="BG" parent="." instance=ExtResource("1_7stjx")]
+bg_texture = ExtResource("4_lldo0")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

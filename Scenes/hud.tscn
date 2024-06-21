@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://yf2e3303bgu2"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_8yds2"]
+[ext_resource type="FontFile" uid="uid://cx1m2pgcbcdye" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_i6uyg"]
+[ext_resource type="Texture2D" uid="uid://cu5yol7x7c3q3" path="res://assets/textures/ui/flatDark23.png" id="3_rpc4e"]
+[ext_resource type="Texture2D" uid="uid://d4a8heqysq6rj" path="res://assets/textures/ui/flatDark24.png" id="4_1gsbr"]
+[ext_resource type="Texture2D" uid="uid://dnlkwqc2epdk7" path="res://assets/textures/ui/flatDark25.png" id="5_xpbl2"]
+[ext_resource type="Texture2D" uid="uid://b8khvpqow2dq1" path="res://assets/textures/ui/flatDark44.png" id="6_bc2rl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cv8p"]
+font = ExtResource("2_i6uyg")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_br3ll"]
+radius = 28.91
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+script = ExtResource("1_8yds2")
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Time:9999"
+label_settings = SubResource("LabelSettings_1cv8p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(14, 228)
+scale = Vector2(0.519999, 0.519999)
+texture_normal = ExtResource("3_rpc4e")
+shape = SubResource("CircleShape2D_br3ll")
+action = "move_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(67, 228)
+scale = Vector2(0.519999, 0.519999)
+texture_normal = ExtResource("4_1gsbr")
+shape = SubResource("CircleShape2D_br3ll")
+action = "move_right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(404, 228)
+scale = Vector2(0.519999, 0.519999)
+texture_normal = ExtResource("5_xpbl2")
+shape = SubResource("CircleShape2D_br3ll")
+action = "jump"
+visibility_mode = 1
+
+[node name="Reset" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(446, 57)
+rotation = 3.14159
+scale = Vector2(0.519999, 0.519999)
+texture_normal = ExtResource("6_bc2rl")
+shape = SubResource("CircleShape2D_br3ll")
+action = "reset"
+visibility_mode = 1
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

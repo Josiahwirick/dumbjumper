@@ -1,0 +1,15 @@
+TouchScreenButton
+AudioStreamPlayer
+Node
+Label
+Button
+ColorRect
+Control
+CanvasLayer
+Node2D
+CollisionShape2D
+StaticBody2D
+AnimatedSprite2D
+Sprite2D
+Area2D
+Marker2D

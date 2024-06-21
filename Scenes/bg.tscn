@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://8vimgasecdvo"]
+
+[ext_resource type="Texture2D" uid="uid://bkd4hd1ahwar2" path="res://assets/textures/bg/Green.png" id="1_fx5if"]
+[ext_resource type="Script" path="res://Scripts/bg.gd" id="1_hqh0p"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_hqh0p")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("1_fx5if")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
